@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 
 class CategoryController extends Controller
  {
-     public function category(Category $category)
+     public function category(Category $category, Post $post)
      {
-       return view('posts.category')->with(['category' => $category]);  
+      $category_id=$category->id;
+      
+       $posts = $post->where('category_id',$category_id)->get();
+       return view('posts.category')->with(['category' => $category, 'posts'=>$posts]);  
      }
  }
 ?>

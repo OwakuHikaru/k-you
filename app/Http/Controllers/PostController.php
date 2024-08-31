@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\PostRequest; // useする
 use App\Models\Comment;
+use App\Models\Category;
+use App\Models\User;
 use App\Http\Controllers\CategoryController;
-
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -21,15 +23,17 @@ class PostController extends Controller
         return view('posts.show')->with(['post' => $post]);
     }
 
-    public function create(Post $post)
-    {
+    public function create(Post $post, Category $category)
+    {   $categories = $category->get();
         $posts = Post::all();
-        return view('posts.create',compact('posts'));
+        return view('posts.create',compact('posts','categories'));
     }
 
     public function store(Post $post, PostRequest $request) // 引数をRequestからPostRequestにする
-    {
+    {  
         $input = $request['post'];
+        $input['lock']='true'===$input['lock']?true:false;
+        $input['user_id']=Auth::id();
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
@@ -44,11 +48,20 @@ class PostController extends Controller
      
      return redirect('/posts/' . $post->id);
      }
+     
      public function delete(Post $post)
      {
      $post->delete();
-     return redirect('/');
+     return redirect('/index');
      }
     
     
+    public function post_user(Post $post)
+    {
+        return view('posts.post_user')->with(['post' => $post]);
+    }
+    
+    public function __construct(){
+    $this->middleware('auth');
+  }
 }

@@ -27,5 +27,9 @@ class UserEditController extends Controller
         // $user->fill($input)->save();
         return redirect('/user')->with(['user' => $user]);
     }
+    
+    public function __construct(){
+    $this->middleware('auth');
+   }
  }
 ?> 

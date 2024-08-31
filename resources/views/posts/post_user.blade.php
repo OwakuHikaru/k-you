@@ -9,15 +9,16 @@
     <body>
         <h2 class='user'>
           <br>
-          <a class='text-2xl '>{{ $user->name }}</a>
+          <a class='text-2xl'>{{ $post->user->name }}</a>
         </h2>
         <h3>
           <br>
-          <a>{{ $user->profile }}</a><a href=/user/edit>[編集]</a>
+          <a>{{ $post->user->profile }}</a>
         </h3>
+        <a href="/chat/{{ $post->user->id }}">{{ $post->user->name }}とチャットする</a>
         <div class='posts'>
              <p class='posts'>
-                <a href={{$user->post}}>{{$user->post}}</a>
+                <a href="/posts/{{$post->id}}">{{$post->body}}</a>
              </p>
         </div>
     </body>
