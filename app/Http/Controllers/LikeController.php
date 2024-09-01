@@ -35,6 +35,7 @@ class LikeController extends Controller
         $param = [
             'likesCount' =>  $likesCount,
         ];
+        dd('Hello');
         //ビューにいいね数を渡しています。名前は上記のlikesCountとなるため、フロントでlikesCountといった表記で受け取っているのがわかると思います。
         return response()->json($param);
     }
