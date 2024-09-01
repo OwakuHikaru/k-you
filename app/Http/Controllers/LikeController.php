@@ -11,7 +11,7 @@ class LikeController extends Controller
 
     public function likePost(Request $request)
     {
-        // dd($request);
+        dd($request);
         $user_id = \Auth::id();
         //jsのfetchメソッドで記事のidを送信しているため受け取ります。
         $post_id = $request->post_id;
