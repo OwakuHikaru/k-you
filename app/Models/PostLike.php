@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostLike extends Model
 {
-    protected $primaryKey = null;
     use HasFactory;
+    protected $primaryKey = ['user_id', 'post_id'];
+    protected $fillable = ['post_id', 'user_id'];
+    public $incrementing = false;
 }
