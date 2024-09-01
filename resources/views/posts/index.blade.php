@@ -100,7 +100,19 @@
         const likeBtn = document.querySelectorAll(".like-btn");
  
  likeBtn.forEach(likeBtn => {
-    likeBtn.addEventListener('click', async (e) => {
+// CSRFトークンを取得
+const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+// 取得したトークンをコンソールに表示
+console.log('CSRF Token:', csrfToken);
+
+// トークンが存在するかをチェック
+if (csrfToken) {
+  console.log('CSRFトークンは正しく取得されました。');
+} else {
+  console.error('CSRFトークンが見つかりませんでした。');
+}
+     likeBtn.addEventListener('click', async (e) => {
   // ここで参考資料の処理
         //いいねボタンをクリックした際の処理を記述します。 
             //クリックされた要素を取得しています。
