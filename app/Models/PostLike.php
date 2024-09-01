@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostLike extends Model
 {
+    protected $primaryKey = null;
     use HasFactory;
 }
