@@ -109,7 +109,6 @@
             clickedEl.classList.toggle('liked')
             //記事のidを取得しています。
             const postId = e.target.id
-        console.log(postId);
             //fetchメソッドを利用し、バックエンドと通信します。非同期処理のため、画面がかくついたり、真っ白になることはありません。
             const res = await fetch('/post/like',{
                 //リクエストメソッドはPOST
