@@ -20,10 +20,11 @@ class LikeController extends Controller
 
         if (!$alreadyLiked) {
         //こちらはいいねをしていない場合の処理です。つまり、post_likesテーブルに自身のid（user_id）といいねをした記事のid（post_id）を保存する処理になります。
-            $like = new PostLike();
-            $like->post_id = $post_id;
-            $like->user_id = $user_id;
-            $like->save();
+            // $like = new PostLike();
+            // $like->post_id = $post_id;
+            // $like->user_id = $user_id;
+            // $like->save();
+            $like = PostLike::create(['post_id' => $post_id, 'user_id' => $user_id]);
         } else {
             //すでにいいねをしていた場合は、以下のようにpost_likesテーブルからレコードを削除します。
             PostLike::where('post_id', $post_id)->where('user_id', $user_id)->delete();
