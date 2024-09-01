@@ -11,7 +11,7 @@ class LikeController extends Controller
 
     public function likePost(Request $request)
     {
-        dd($request);
+        // dd($request);
         $user_id = \Auth::id();
         //jsのfetchメソッドで記事のidを送信しているため受け取ります。
         $post_id = $request->post_id;
@@ -35,7 +35,7 @@ class LikeController extends Controller
         $param = [
             'likesCount' =>  $likesCount,
         ];
-        dd('Hello');
+        // dd('Hello');
         //ビューにいいね数を渡しています。名前は上記のlikesCountとなるため、フロントでlikesCountといった表記で受け取っているのがわかると思います。
         return response()->json($param);
     }
