@@ -16,9 +16,11 @@
           <a>{{ $user->profile }}</a><a href=/user/edit>[編集]</a>
         </h3>
         <div class='posts'>
-             <p class='posts'>
-                <a href={{$user->post}}>{{$user->post}}</a>
-             </p>
+             @foreach ($posts as $post)
+        <p class="post">
+            <a>{{ $post->body }}</a>
+        </p>
+    @endforeach
         </div>
     </body>
     </x-app-layout>

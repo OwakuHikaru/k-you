@@ -48,7 +48,10 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/user', [UserController::class, 'user'])->name('user');
+// Route::get('/user', [UserController::class, 'user'])->name('user');　変更前
+Route::get('/user', [UserController::class, 'showUserWithPosts'])
+    ->name('user')  
+    ->middleware('auth');
 
 Route::get('/category/{category}', [CategoryController::class, 'category']);
 
