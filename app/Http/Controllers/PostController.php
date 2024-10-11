@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Http\Requests\PostRequest; // useする
+use App\Http\Requests\PostRequest;
 use App\Models\Comment;
 use App\Models\Category;
 use App\Models\User;
@@ -58,10 +58,18 @@ class PostController extends Controller
     
     public function post_user(Post $post)
     {
+        
+    if ( Auth::id() == $post->user->id ) {
+        return redirect('/user');
+    } else {
         return view('posts.post_user')->with(['post' => $post]);
+        // return redirect('/posts/user/' . $post->user_id)->with(['post' => $post]);だとリダイレクトが繰り返されてしまう
+    }
     }
     
     public function __construct(){
     $this->middleware('auth');
   }
+  
+  
 }

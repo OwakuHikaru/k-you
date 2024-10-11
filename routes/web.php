@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth']], function(){
-Route::get('/index', [PostController::class, 'index'])->name('index')->middleware('auth');;
+Route::get('/index', [PostController::class, 'index'])->name('index')->middleware('auth');
 Route::get('/posts/create', [PostController::class, 'create']);
 //jsのfetchメソッドで'/post/like'としているため、ルーティングも以下のように'/post/like'とします。
 Route::post('/post/like', [LikeController::class, 'likePost']);
@@ -63,6 +63,7 @@ Route::put('/user/edit', [UserEditController::class, 'update']);
 Route::post('/user', [UserEditController::class, 'store']);
 
 Route::get('/posts/user/{post}', [PostController::class, 'post_user']);
+
 Route::post('/chat', [ChatController::class, 'sendMessage']);
 Route::get('/chat/{user}', [ChatController::class, 'openChat']);
 

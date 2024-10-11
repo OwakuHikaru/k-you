@@ -9,7 +9,7 @@
     <body>
         <h2 class='user'>
           <br>
-          <a class='text-2xl '>{{ $user->name }}</a>
+          <a class='text-2xl ' href=/user>{{ $user->name }}</a>
         </h2>
         <h3>
           <br>

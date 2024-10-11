@@ -27,11 +27,6 @@
          </form>
     </div>
     <div class="back">[<a href="/index">戻る</a>]</div>
-        <div class='posts'>
-             <p class='posts'>
-                <a href=></a>
-             </p>
-        </div>
     </body>
     </x-app-layout>
 </html>
