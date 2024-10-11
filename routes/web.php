@@ -67,6 +67,6 @@ Route::get('/posts/user/{post}', [PostController::class, 'post_user']);
 Route::post('/chat', [ChatController::class, 'sendMessage']);
 Route::get('/chat/{user}', [ChatController::class, 'openChat']);
 
-
+Route::get('/likes', [LikeController::class, 'index'])->name('likes');
 
 require __DIR__.'/auth.php';

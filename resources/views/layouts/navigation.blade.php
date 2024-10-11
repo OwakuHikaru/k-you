@@ -21,6 +21,11 @@
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
                         {{ __('Index') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('likes')" :active="request()->routeIs('likes')">
+                        {{ __('Likes') }}
+                    </x-nav-link>
+                    
+                    
                     
                 </div>
             </div>
