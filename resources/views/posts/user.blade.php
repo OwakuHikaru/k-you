@@ -15,12 +15,19 @@
           <br>
           <a>{{ $user->profile }}</a><a href=/user/edit>[編集]</a>
         </h3>
+        <br>
         <div class='posts'>
+            ＜{{ $user->name }}の投稿一覧＞
+            <br>
+            <!--1個だと空白行できなかったので2個-->
+            <br> 
              @foreach ($posts as $post)
-        <p class="post">
-            <a>{{ $post->body }}</a>
-        </p>
-    @endforeach
+            <p class="post">
+             <a href = "/posts/{{$post->id}}">{{ $post->body }}</a>
+             <br>
+             <br>
+            </p>
+             @endforeach
         </div>
     </body>
     </x-app-layout>
